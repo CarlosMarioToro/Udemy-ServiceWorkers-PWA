@@ -15,6 +15,13 @@ describe('Carga la pagina principal', () => {
             .invoke('text')
             .should('equal', 'Administrador de Pacientes de Veterinaria')
 
+        // Verificar el texto de las citas
+        cy.get('[data-cy=citas-heading]')
+            .invoke('text')
+            .should('equal', 'No hay Citas, comienza creando una')
         
+        cy.get('[data-cy=citas-heading]')
+            .invoke('text')
+            .should('not.equal', 'Carlos')
     })
 })
