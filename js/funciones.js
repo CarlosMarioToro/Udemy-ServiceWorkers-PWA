@@ -1,21 +1,10 @@
-import Citas from './classes/Citas.js';
-import UI from './classes/UI.js';
+import Citas from './classes/Citas.js'
+import UI from './classes/UI.js'
+import { mascotaInput, propietarioInput, telefonoInput, fechaInput, horaInput, sintomasInput, formulario } from './selectores.js';
 
-import { 
-    mascotaInput, 
-    propietarioInput, 
-    telefonoInput, 
-    fechaInput, 
-    horaInput, 
-    sintomasInput, 
-    formulario 
-} from './selectores.js';
 
+const ui = new UI();
 const administrarCitas = new Citas();
-const ui = new UI(administrarCitas);
-
-
-let editando = false;
 
 const citaObj = {
     mascota: '',
@@ -27,11 +16,12 @@ const citaObj = {
 }
 
 
+let editando = false;
+
 export function datosCita(e) {
     //  console.log(e.target.name) // Obtener el Input
      citaObj[e.target.name] = e.target.value;
 }
-
 
 
 export function nuevaCita(e) {
@@ -57,6 +47,7 @@ export function nuevaCita(e) {
         editando = false;
 
     } else {
+        // Nuevo Registrando
 
         // Generar un ID único
         citaObj.id = Date.now();
@@ -122,4 +113,8 @@ export function cargarEdicion(cita) {
 
     editando = true;
 
+}
+
+export function suma(a,b) {
+    return a + b;
 }
